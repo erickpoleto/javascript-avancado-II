@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <title>Document</title>
+</head>
+<body class="container">
+    <button class="btn btn-primary" type="submit">Incluir</button>
+
+    <div id="preenche">
+
+    </div>
+
+    <script src="js/shorts.js"></script>
+    <script src="js/atividade-tabela/models/preencherModel.js"></script>
+    <script src="js/app/models/Lista.js"></script>
+    <script src="js/atividade-tabela/controller/preencherController.js"></script>
+    <script src="js/atividade-tabela/views/preencherView.js"></script>
+    <script>
+        let controller = new PreencherControler();
+        controller.adicionar();
+    </script>
+</body>
+</html>
