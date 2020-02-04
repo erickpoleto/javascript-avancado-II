@@ -9,16 +9,6 @@ class PreencherControler{
     }
 
     adicionar(){
-        this._listaFuncionarios.adiciona(this._criaListaFuncionarios());
-        console.log(this._listaFuncionarios);
-        /*for(let i=0; i<this._listaFuncionarios.lista.length; i++){
-            this._preencherView.update(this._listaFuncionarios);
-        }*/
-
-    }
-
-    _criaListaFuncionarios(){
-        
         let funcionarios = [
             {
                 "nome": "Douglas",
@@ -36,9 +26,19 @@ class PreencherControler{
                 "salario" : "6000"
             }
         ];
+        for( let i = 0; i < funcionarios.length; i++){
+            this._listaFuncionarios.adiciona
+            (this._criaListaFuncionarios(funcionarios[i]));
+        }
+        console.log(this._listaFuncionarios);
+        this._preencherView.update(this._listaFuncionarios);
+        
+    }
 
-        //return new Funcionarios(funcionarios[1].nome, funcionarios[1].endereco, funcionarios[1].salario);
+    _criaListaFuncionarios(funcionarios = []){
 
-        return funcionarios.map(i => new Funcionarios(i.nome, i.endereco, i.salario));
+        return new Funcionarios(funcionarios.nome, 
+            funcionarios.endereco, funcionarios.salario);
+
     }    
 }
