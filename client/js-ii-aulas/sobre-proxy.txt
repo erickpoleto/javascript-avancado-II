@@ -1,0 +1,4 @@
+O padrão de projeto Proxy nada mais é do que um objeto "falso", "mentiroso", 
+que envolve e encapsula o objeto real que queremos interagir. É como se fosse uma interface, 
+entre o objeto real e o resto do código. Conseguimos assim controlar o acesso aos seus atributos e métodos. 
+Nele também podemos pendurar códigos que não cabem de estar alocados nos nossos modelos, mas que necessitam ser executados no caso de uma alteração ou atualização do mesmo.
