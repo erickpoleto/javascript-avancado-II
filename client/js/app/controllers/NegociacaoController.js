@@ -12,10 +12,8 @@ class NegociacaoController{
 
         this._apagar = $('.botao-apagar');
 
-        this._negociacoesView = new NegociacaoView($('#negociacoes-view'));
-
         this._listaNegociacoes = new Bind(
-            new Lista(), this._negociacoesView, ['adiciona', 'esvazia']);
+            new Lista(), new NegociacaoView($('#negociacoes-view')), 'adiciona', 'esvazia');
         /*
         this._listaNegociacoes = ProxyFactory.createProxy(
             new Lista(), ['adiciona','esvazia'], (model) => 
@@ -24,9 +22,7 @@ class NegociacaoController{
         //this._listaNegociacoes = new Lista(/*this,*/ model =>
           //  this._negociacoesView.update(model)
         //);
-        this._mensagemView = new MensagemView($('#mensagem-alerta'));
-
-        this._mensagem = new Bind(new Mensagem(), this._mensagemView, ['texto']);
+        this._mensagem = new Bind(new Mensagem(), new MensagemView($('#mensagem-alerta')), 'texto');
 
         /*this._mensagem = ProxyFactory.createProxy(
             new Mensagem(), ['texto'], model => 
@@ -41,7 +37,6 @@ class NegociacaoController{
         /*instanciando objeto helper e criando variável data*/
         this._listaNegociacoes.adiciona(this._criaNegociacao());
         this._mensagem.texto = "Negociação adicionada com sucesso";
-        this._mensagemView.update(this._mensagem);
         this._limpaFormulario();
 
         console.log(this._listaNegociacoes.lista);
