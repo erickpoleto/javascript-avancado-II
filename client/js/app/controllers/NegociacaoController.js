@@ -11,22 +11,28 @@ class NegociacaoController{
         this._form = $('.form');
 
         this._apagar = $('.botao-apagar');
-        this._listaNegociacoes = ProxyFactory.createProxy(new Lista(), ['adiciona','esvazia'], (model) => {
-            this._negociacoesView.update(model);
-        })
-        
+
+        this._negociacoesView = new NegociacaoView($('#negociacoes-view'));
+
+        this._listaNegociacoes = new Bind(
+            new Lista(), this._negociacoesView, ['adiciona', 'esvazia']);
+        /*
+        this._listaNegociacoes = ProxyFactory.createProxy(
+            new Lista(), ['adiciona','esvazia'], (model) => 
+            this._negociacoesView.update(model));
+        */
         //this._listaNegociacoes = new Lista(/*this,*/ model =>
           //  this._negociacoesView.update(model)
         //);
-        
-        this._negociacoesView = new NegociacaoView($('#negociacoes-view'));
-        this._negociacoesView.update(this._listaNegociacoes);
-
-        this._mensagem = ProxyFactory.createProxy(new Mensagem(), ['texto'], model => 
-            this._mensagemView.update(model)
-        );
-        
         this._mensagemView = new MensagemView($('#mensagem-alerta'));
+
+        this._mensagem = new Bind(new Mensagem(), this._mensagemView, ['texto']);
+
+        /*this._mensagem = ProxyFactory.createProxy(
+            new Mensagem(), ['texto'], model => 
+            this._mensagemView.update(model));
+        */
+        
     }
 
     adiciona(event){
