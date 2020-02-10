@@ -10,10 +10,12 @@ class NegociacaoController{
 
         this._form = $('.form');
 
+        this._importaNegociacoes = $('#importa-negociacoes');
+
         this._apagar = $('.botao-apagar');
 
         this._listaNegociacoes = new Bind(
-            new Lista(), new NegociacaoView($('#negociacoes-view')), 'adiciona', 'esvazia');
+            new Lista(), new NegociacaoView($('#negociacoes-view')), 'adiciona', 'esvazia', 'importaNegociacoes');
         /*
         this._listaNegociacoes = ProxyFactory.createProxy(
             new Lista(), ['adiciona','esvazia'], (model) => 
@@ -50,6 +52,19 @@ class NegociacaoController{
         this._mensagemView.update(this._mensagem);
     }
 
+    importaNegociacoes(){
+        
+       let services = new NegociacaoService();
+       services.importaNegociacaoService((err, negociacoes) => {
+            if(err){
+                this._mensagem.texto = err;
+                return;
+            }
+            negociacoes.forEach(negociacao => this._listaNegociacoes.adiciona(negociacao));
+            this._mensagem.texto = "Negociações importadas com sucesso";
+       });
+    }
+
     _criaNegociacao(){
 
         let data = DateHelper.textoParaData(this._inputData.value);
@@ -60,7 +75,6 @@ class NegociacaoController{
             this._inputValor.value
 
         );
-
     }
 
     _limpaFormulario() {

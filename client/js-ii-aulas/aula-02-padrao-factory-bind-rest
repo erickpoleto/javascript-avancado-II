@@ -1,0 +1,7 @@
+1 - Isole o código que constrói um Proxy e sua complexidade na classe ProxyFactory.
+
+2 - Esconda a construção do Proxy utilizando um objeto Bind.
+
+3 - Altere NegociacaoController para usar as classes que você acabou de criar.
+
+4 - Remova os atributos que representam as views do controller passando direto para o Proxy, afinal, apenas ele deverá manipular a view!

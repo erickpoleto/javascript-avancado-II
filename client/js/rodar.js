@@ -1,20 +1,27 @@
 let negociacaoController = new NegociacaoController();
 
-adicionarEventoAdiciona(negociacaoController);
-removerEventoAdiciona(negociacaoController);
+_adicionarEventoAdiciona(negociacaoController);
+_removerEventoAdiciona(negociacaoController);
+_importaNegociacoes(negociacaoController);
 
-function adicionarEventoAdiciona(negociacao){
+function _adicionarEventoAdiciona(negociacao){
 
     negociacao._form.addEventListener('submit', function(event){
-        negociacaoController.adiciona(event);
+        negociacao.adiciona(event);
     });
 
 }
 
-function removerEventoAdiciona(negociacao){
+function _removerEventoAdiciona(negociacao){
 
     negociacao._apagar.addEventListener('click', function(){
-        negociacaoController.apaga();
+        negociacao.apaga();
     });
 
+}
+
+function _importaNegociacoes(negociacao){
+    negociacao._importaNegociacoes.addEventListener('click', function(){
+        negociacao.importaNegociacoes();
+    });
 }

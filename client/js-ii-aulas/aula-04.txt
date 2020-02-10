@@ -1,0 +1,9 @@
+1 - Chegou a hora de você usar o servidor que preparamos pela primeira vez. As instruções de como subi-lo encontram-se 
+no exercício obrigatório do primeiro capítulo.
+
+2 - Nosso servidor disponibiliza os endereços:
+
+negociacoes/semana
+negociacoes/anterior
+negociacoes/retrasada
+3 - Lembre-se de criar o NegociacaoService para separar as responsabilidades entre do NegociacaoController.
