@@ -6,6 +6,8 @@ class NegociacaoController{
 
         this._inputQuantidade = $('#quantidade');
 
+        this._th = $('th');
+
         this._inputValor = $('#valor');
 
         this._form = $('.form');
@@ -14,8 +16,10 @@ class NegociacaoController{
 
         this._apagar = $('.botao-apagar');
 
+        this._ordemAtual = '';
+
         this._listaNegociacoes = new Bind(
-            new Lista(), new NegociacaoView($('#negociacoes-view')), 'adiciona', 'esvazia', 'importaNegociacoes');
+            new Lista(), new NegociacaoView($('#negociacoes-view')), 'adiciona', 'esvazia', 'ordena', 'inverteOrdem');
         /*
         this._listaNegociacoes = ProxyFactory.createProxy(
             new Lista(), ['adiciona','esvazia'], (model) => 
@@ -71,6 +75,16 @@ class NegociacaoController{
             this._mensagem.texto = 'Negociações da semana obtida com sucesso'    
         })
         .catch(erro => this._mensagem.texto = erro);*/
+    }
+
+    ordena(coluna){
+        if(this._ordemAtual == coluna){
+            this._listaNegociacoes.inverteOrdem();
+        } else {
+            this._listaNegociacoes.ordena((a, b) => a[coluna] - b[coluna]);
+            
+        }
+        this._ordemAtual = coluna;
     }
 
     _criaNegociacao(){

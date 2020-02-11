@@ -4,6 +4,7 @@ _adicionarEventoAdiciona(negociacaoController);
 _removerEventoAdiciona(negociacaoController);
 _importaNegociacoes(negociacaoController);
 
+
 function _adicionarEventoAdiciona(negociacao){
 
     negociacao._form.addEventListener('submit', function(event){
@@ -25,3 +26,11 @@ function _importaNegociacoes(negociacao){
         negociacao.importaNegociacoes();
     });
 }
+
+/*function _ordenar(negociacao){
+
+    negociacao._th.addEventListener('click', function(event){
+        console.log(this);
+    })
+
+}*/

@@ -21,6 +21,14 @@ class Lista{
         //Reflect.apply(this._atualiza, this._contexto, [this]);
     }
 
+    ordena(criterio){
+        this._lista.sort(criterio);
+    }
+
+    inverteOrdem(){
+        this._lista.reverse();
+    }
+
     get lista(){
         
         return [].concat(this._lista);
